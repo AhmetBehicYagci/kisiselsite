@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmet Behiç Yağcı | Kişisel Portfolyo</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #050505;
+            --bg-card: #0d0d11;
+            --bg-card-hover: #14141b;
+            --border-color: #1f1f29;
+            --text-main: #f4f4f6;
+            --text-muted: #9ca3af;
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --accent-green: #10b981;
+            --gradient: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.06) 0%, transparent 35%),
+                radial-gradient(circle at 85% 80%, rgba(79, 172, 254, 0.05) 0%, transparent 35%);
+        }
+
+        /* Üst Menü (Navbar) */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-btn {
+            padding: 0.5rem 1.1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-card);
+            color: var(--text-main) !important;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem !important;
+            transition: all 0.25s ease !important;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        }
+
+        /* Ana Kapsayıcı ve Bölümler */
+        main {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-tag {
+            font-family: 'Fira Code', monospace;
+            color: var(--accent-cyan);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* Hero (Giriş) Bölümü */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3rem;
+            align-items: center;
+            padding-top: 7rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.9rem;
+            background: rgba(0, 242, 254, 0.08);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            border-radius: 999px;
+            color: var(--accent-cyan);
+            font-size: 0.82rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-green);
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .typewriter-box {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.15rem;
+            color: var(--accent-green);
+            margin-bottom: 1.5rem;
+            min-height: 1.8rem;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 2.2rem;
+            max-width: 540px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.85rem 1.7rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #050505;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.35);
+        }
+
+        .btn-outline {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Kod Terminali Kartı */
+        .terminal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+        }
+
+        .terminal-header {
+            background: #14141b;
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 0.45rem;
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .dot.red { background: #ef4444; }
+        .dot.yellow { background: #f59e0b; }
+        .dot.green { background: #10b981; }
+
+        .terminal-title {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .terminal-body {
+            padding: 1.5rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.88rem;
+            line-height: 1.75;
+            color: #d1d5db;
+        }
+
+        .code-key { color: var(--accent-cyan); }
+        .code-str { color: #a7f3d0; }
+        .code-comment { color: #6b7280; font-style: italic; }
+
+        /* Hakkımda ve Eğitim */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(0, 242, 254, 0.35);
+            background: var(--bg-card-hover);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .edu-item {
+            border-left: 2px solid var(--accent-cyan);
+            padding-left: 1.2rem;
+            margin-top: 1.2rem;
+        }
+
+        .edu-year {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+        }
+
+        .edu-school {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin: 0.2rem 0;
+        }
+
+        .edu-dept {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        /* Yetenekler (Skills) */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.25s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-4px);
+        }
+
+        .skill-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.9rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .skill-tag {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            background: rgba(0, 242, 254, 0.1);
+            padding: 0.2rem 0.55rem;
+            border-radius: 6px;
+        }
+
+        .progress-bg {
+            width: 100%;
+            height: 7px;
+            background: #1c1c26;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 99px;
+        }
+
+        /* Projeler / Çalışmalar */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1.2rem 0;
+        }
+
+        .project-tech span {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-green);
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .project-link {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* İletişim Bölümü */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #121218;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-top: 1rem;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: border-color 0.2s ease;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent-cyan);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fira Code', monospace;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 1.1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: #08080b;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        /* YZ Asistan Widget (Ödev Konsepti İçin) */
+        .ai-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+        }
+
+        .ai-toggle-btn {
+            background: var(--gradient);
+            color: #050505;
+            border: none;
+            padding: 0.85rem 1.25rem;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.35);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .ai-toggle-btn:hover {
+            transform: scale(1.04);
+        }
+
+        .ai-box {
+            display: none;
+            width: 330px;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
+            margin-bottom: 0.75rem;
+        }
+
+        .ai-box.active {
+            display: block;
+        }
+
+        .ai-header {
+            background: #14141d;
+            padding: 0.9rem 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .ai-messages {
+            padding: 1rem;
+            max-height: 230px;
+            overflow-y: auto;
+            font-size: 0.86rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .ai-msg {
+            background: #161621;
+            padding: 0.65rem 0.85rem;
+            border-radius: 10px;
+            color: var(--text-main);
+            border-left: 3px solid var(--accent-cyan);
+        }
+
+        .ai-quick-btns {
+            padding: 0.75rem 1rem 1rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .ai-chip {
+            background: #12121a;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.35rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.76rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .ai-chip:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* Alt Bilgi (Footer) */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobil Uyum (Responsive) */
+        @media (max-width: 850px) {
+            .hero, .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding-top: 6rem;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Üst Menü -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">&lt;AhmetBehiç<span>Yağcı</span>/&gt;</a>
+            <ul class="nav-links">
+                <li><a href="#hakkimda">Hakkımda</a></li>
+                <li><a href="#yetenekler">Yetenekler</a></li>
+                <li><a href="#projeler">Çalışmalar</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+                <li><a href="https://github.com/AhmetBehicYagci" target="_blank" class="nav-btn">GitHub ↗</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Giriş (Hero) Bölümü -->
+        <section class="hero">
+            <div>
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    Anadolu Üniversitesi • Ön Yüz Yazılım Geliştirme
+                </div>
+                <h1>Merhaba, ben <br><span>Ahmet Behiç Yağcı</span></h1>
+                <div class="typewriter-box" id="typewriter"></div>
+                <p>
+                    Modern web arayüzleri tasarlayan ve geliştiren bir Ön Yüz Yazılım Geliştirme öğrencisiyim. 
+                    HTML ve CSS ile kullanıcı dostu arayüzler oluştururken; Python, Java ve C# ile algoritma ve arka plan mimarileri üzerine çalışıyorum.
+                </p>
+                <div class="btn-group">
+                    <a href="#iletisim" class="btn btn-primary">İletişime Geç</a>
+                    <a href="https://github.com/AhmetBehicYagci" target="_blank" class="btn btn-outline">GitHub Profilim</a>
+                </div>
+            </div>
+
+            <!-- Sağ Taraf: Kod Terminali -->
+            <div class="terminal-card">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <span class="terminal-title">ahmet_behic.json</span>
+                </div>
+                <div class="terminal-body">
+<pre>{
+  <span class="code-key">"adSoyad"</span>: <span class="code-str">"Ahmet Behiç Yağcı"</span>,
+  <span class="code-key">"universite"</span>: <span class="code-str">"Anadolu Üniversitesi"</span>,
+  <span class="code-key">"bolum"</span>: <span class="code-str">"Ön Yüz Yazılım Geliştirme"</span>,
+  <span class="code-key">"diller"</span>: [
+    <span class="code-str">"HTML5"</span>, <span class="code-str">"CSS3"</span>,
+    <span class="code-str">"Python"</span>, <span class="code-str">"Java"</span>, <span class="code-str">"C#"</span>
+  ],
+  <span class="code-key">"eposta"</span>: <span class="code-str">"yagciahmetbehic@gmail.com"</span>,
+  <span class="code-key">"durum"</span>: <span class="code-str">"Yeni projelere açık 🚀"</span>
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hakkımda & Eğitim -->
+        <section id="hakkimda">
+            <div class="section-header">
+                <span class="section-tag">// 01. HAKKIMDA</span>
+                <h2 class="section-title">Ben Kimim & Eğitimim</h2>
+            </div>
+            <div class="about-grid">
+                <div class="card">
+                    <h3>Yazılım Tutkusu ve Hedeflerim</h3>
+                    <p>
+                        Merhaba! Ben Ahmet Behiç Yağcı. Anadolu Üniversitesi Ön Yüz Yazılım Geliştirme bölümünde eğitim hayatıma devam ediyorum. Kullanıcı deneyimini (UX) ve modern arayüz tasarımını (UI) merkeze alan hızlı, duyarlı (responsive) web siteleri geliştirmeye odaklanıyorum.
+                    </p>
+                    <p>
+                        Sadece ön yüz teknolojileriyle sınırlı kalmayıp; <strong>Python, Java ve C#</strong> gibi güçlü programlama dilleriyle nesne yönelimli programlama (OOP) ve algoritma kurgusu üzerine kendimi sürekli geliştiriyorum.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Eğitim Bilgileri</h3>
+                    <div class="edu-item">
+                        <span class="edu-year">Devam Ediyor</span>
+                        <div class="edu-school">Anadolu Üniversitesi</div>
+                        <div class="edu-dept">Ön Yüz Yazılım Geliştirme Bölümü</div>
+                    </div>
+                    <div class="edu-item">
+                        <span class="edu-year">Odak Alanları</span>
+                        <div class="edu-school">Web Teknolojileri & Algoritma</div>
+                        <div class="edu-dept">Modern Arayüz Tasarımı, Nesne Yönelimli Programlama ve YZ Destekli Web Geliştirme</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Yetenekler -->
+        <section id="yetenekler">
+            <div class="section-header">
+                <span class="section-tag">// 02. YETENEKLER</span>
+                <h2 class="section-title">Kullandığım Diller ve Teknolojiler</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-top">
+                        <span class="skill-name">HTML5</span>
+                        <span class="skill-tag">Frontend</span>
+                    </div>
+                    <div class="progress-bg"><div class="progress-bar" style="width: 90%;"></div></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-top">
+                        <span class="skill-name">CSS3</span>
+                        <span class="skill-tag">Frontend</span>
+                    </div>
+                    <div class="progress-bg"><div class="progress-bar" style="width: 85%;"></div></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-top">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-tag">Programlama</span>
+                    </div>
+                    <div class="progress-bg"><div class="progress-bar" style="width: 80%;"></div></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-top">
+                        <span class="skill-name">C#</span>
+                        <span class="skill-tag">OOP / .NET</span>
+                    </div>
+                    <div class="progress-bg"><div class="progress-bar" style="width: 75%;"></div></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-top">
+                        <span class="skill-name">Java</span>
+                        <span class="skill-tag">OOP</span>
+                    </div>
+                    <div class="progress-bg"><div class="progress-bar" style="width: 75%;"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projeler / Çalışmalar -->
+        <section id="projeler">
+            <div class="section-header">
+                <span class="section-tag">// 03. ÇALIŞMALARIM</span>
+                <h2 class="section-title">Öne Çıkan Projeler</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div>
+                        <h3>YZ Destekli Kişisel Portfolyo</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.6rem; font-size: 0.94rem;">
+                            Anadolu Üniversitesi Ön Yüz Yazılım Geliştirme dersi kapsamında modern karanlık tema, duyarlı (responsive) mimari ve etkileşimli YZ asistanı ile geliştirilen kişisel web sayfası.
+                        </p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>YZ Destekli</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/AhmetBehicYagci" target="_blank" class="project-link">GitHub'da İncele →</a>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <h3>Python Otomasyon & Algoritma Araçları</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.6rem; font-size: 0.94rem;">
+                            Veri işleme, günlük görev otomasyonu ve temel algoritma problemlerini çözmek amacıyla Python dili kullanılarak geliştirilen konsol ve betik uygulamaları.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Algoritma</span>
+                            <span>Veri Yapıları</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/AhmetBehicYagci" target="_blank" class="project-link">GitHub'da İncele →</a>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <h3>C# ve Java Nesne Yönelimli Uygulamalar</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.6rem; font-size: 0.94rem;">
+                            Nesne yönelimli programlama (OOP) prensipleriyle hazırlanan sınıf yapıları, masaüstü/konsol otomasyon kurguları ve yazılım mimarisi pratikleri.
+                        </p>
+                        <div class="project-tech">
+                            <span>C#</span>
+                            <span>Java</span>
+                            <span>OOP</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/AhmetBehicYagci" target="_blank" class="project-link">GitHub'da İncele →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- İletişim -->
+        <section id="iletisim">
+            <div class="section-header">
+                <span class="section-tag">// 04. İLETİŞİM</span>
+                <h2 class="section-title">Bana Ulaşın</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="card">
+                    <h3>İletişim Kanalları</h3>
+                    <p>Proje fikirleri, iş birlikleri veya sorularınız için aşağıdaki kanallardan doğrudan bana ulaşabilirsiniz.</p>
+                    
+                    <a href="mailto:yagciahmetbehic@gmail.com" class="contact-item">
+                        <div class="contact-icon">@</div>
+                        <div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">E-Posta Adresim</div>
+                            <div style="font-weight: 600;">yagciahmetbehic@gmail.com</div>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/AhmetBehicYagci" target="_blank" class="contact-item">
+                        <div class="contact-icon">&lt;/&gt;</div>
+                        <div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">GitHub Profilim</div>
+                            <div style="font-weight: 600;">github.com/AhmetBehicYagci</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <h3>Hızlı Mesaj Gönder</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label>Adınız Soyadınız</label>
+                            <input type="text" id="senderName" class="form-control" placeholder="Örn: Ali Yılmaz" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mesajınız</label>
+                            <textarea id="senderMsg" rows="4" class="form-control" placeholder="Merhaba Ahmet, seninle iletişime geçmek istiyorum..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">E-Posta Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sağ Alt Köşe: YZ Portfolyo Asistanı -->
+    <div class="ai-widget">
+        <div class="ai-box" id="aiBox">
+            <div class="ai-header">
+                <span>🤖 Ahmet'in YZ Asistanı</span>
+                <span style="cursor:pointer; color:var(--text-muted);" onclick="toggleAI()">✕</span>
+            </div>
+            <div class="ai-messages" id="aiMessages">
+                <div class="ai-msg">
+                    Merhaba! Ben Ahmet Behiç Yağcı'nın kişisel YZ asistanıyım. Aşağıdaki butonlara tıklayarak Ahmet hakkında hızlı bilgi alabilirsin.
+                </div>
+            </div>
+            <div class="ai-quick-btns">
+                <button class="ai-chip" onclick="askAI('egitim')">🎓 Eğitimi nedir?</button>
+                <button class="ai-chip" onclick="askAI('diller')">💻 Bildiği diller?</button>
+                <button class="ai-chip" onclick="askAI('iletisim')">📩 İletişim bilgileri</button>
+            </div>
+        </div>
+        <button class="ai-toggle-btn" onclick="toggleAI()">
+            <span>✨ YZ Asistanına Sor</span>
+        </button>
+    </div>
+
+    <!-- Alt Bilgi -->
+    <footer>
+        <p>© 2026 <strong>Ahmet Behiç Yağcı</strong> • Anadolu Üniversitesi Ön Yüz Yazılım Geliştirme</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 1. Daktilo (Typewriter) Efekti
+        const roles = [
+            "> Ön Yüz Yazılım Geliştirme Öğrencisi",
+            "> HTML5 & CSS3 ile Modern Web Tasarımı",
+            "> Python, Java ve C# Geliştiricisi"
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeTarget = document.getElementById("typewriter");
+
+        function typeEffect() {
+            const currentRole = roles[roleIndex];
+            if (isDeleting) {
+                typeTarget.textContent = currentRole.substring(0, charIndex--);
+            } else {
+                typeTarget.textContent = currentRole.substring(0, charIndex++);
+            }
+
+            let speed = isDeleting ? 35 : 70;
+
+            if (!isDeleting && charIndex === currentRole.length + 1) {
+                speed = 1800;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                speed = 400;
+            }
+            setTimeout(typeEffect, speed);
+        }
+        typeEffect();
+
+        // 2. İletişim Formu (Mailto Yönlendirmesi)
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name = document.getElementById("senderName").value;
+            const msg = document.getElementById("senderMsg").value;
+            const subject = encodeURIComponent(`Portfolyo İletişim: ${name}`);
+            const body = encodeURIComponent(`Gönderen: ${name}\n\nMesaj:\n${msg}`);
+            window.location.href = `mailto:yagciahmetbehic@gmail.com?subject=${subject}&body=${body}`;
+        });
+
+        // 3. YZ Portfolyo Asistanı Etkileşimi
+        function toggleAI() {
+            document.getElementById("aiBox").classList.toggle("active");
+        }
+
+        function askAI(topic) {
+            const box = document.getElementById("aiMessages");
+            let reply = "";
+
+            if (topic === "egitim") {
+                reply = "Ahmet Behiç Yağcı, Anadolu Üniversitesi Ön Yüz Yazılım Geliştirme bölümünde eğitim görmektedir.";
+            } else if (topic === "diller") {
+                reply = "Aktif olarak HTML5, CSS3, Python, Java ve C# dillerini kullanmaktadır.";
+            } else if (topic === "iletisim") {
+                reply = "Ahmet'e yagciahmetbehic@gmail.com adresinden veya github.com/AhmetBehicYagci profilinden ulaşabilirsin.";
+            }
+
+            const msgDiv = document.createElement("div");
+            msgDiv.className = "ai-msg";
+            msgDiv.textContent = reply;
+            box.appendChild(msgDiv);
+            box.scrollTop = box.scrollHeight;
+        }
+    </script>
+</body>
+</html>
